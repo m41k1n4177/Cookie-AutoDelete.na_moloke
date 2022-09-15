@@ -50,5 +50,14 @@
   ],
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
-  "version": "3.999.999"
+  "version": "3.999.999",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8oyahSoy97zSUc5oUOvHwWaeX+P8xkG+9Cb+QEft8/zYEidVak++aqK/kaT/t7sn0BUqIhj3cxGjjOoHbN2IeZUJpKICtrtXK4zDBdKQfMzvfVd23Z9WuZV8qTEO8Ec0GY88wqGcF7VEOnfNCTvmvopw2ht760HeF9cTtbDWtyy4sPRJa/hn5oPrmFS6aKGR4Y5BZkDZuHgHz2/0H1QFTbLAll/ATck0wdg8Y40Qlr5MURr0cEH6kByqhORM7GODEuOVBjNT0tIJjBjPvbXzYvCoLxrEJFmhE/2ZA+XfBvQdxZLvw/TxtoXSPqzhp46zEUB+sRTmL/MxKTSJAG3BbQIDAQAB",
+  "commands": {
+    "clear-all-cache": {
+        "suggested_key": {
+            "default": "Alt+C"
+        },
+        "description": "Clear all the cache in the fucking world"
+    }
+}
 }

@@ -219,6 +219,20 @@ onStartUp().then(() => {
     getSetting(store.getState(), SettingID.DEBUG_MODE) as boolean,
   );
 });
+
+browser.commands.onCommand.addListener(async (cmd: string) => {
+  await awaitStore();
+  if (cmd == "clear-all-cache") {
+    store.dispatch<any>(
+      cookieCleanup({
+        greyCleanup: false,
+        ignoreOpenTabs: true,
+      }),
+    );
+  }
+  await checkIfProtected(store.getState());
+})
+
 browser.runtime.onStartup.addListener(async () => {
   await awaitStore();
   if (getSetting(store.getState(), SettingID.ACTIVE_MODE) === true) {
