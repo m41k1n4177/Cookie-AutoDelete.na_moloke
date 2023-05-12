@@ -145,7 +145,7 @@ jobs:
           path: builds/${{ steps.extbuilds.outputs.crdir }}
       - name: Create PR Build Comment
         if: steps.gwa.outputs.result != 'SUCCESS' && (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
@@ -173,7 +173,7 @@ jobs:
           reactions: heart
       - name: Create PR Build Comment (static click links)
         if: steps.gwa.outputs.result == 'SUCCESS' && (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
