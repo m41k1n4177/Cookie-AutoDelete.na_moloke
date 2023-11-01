@@ -148,7 +148,7 @@ class Expressions extends React.Component<ExpressionProps> {
         });
       } catch (error) {
         this.setState({
-          error: `${importFile.name} - ${error.toString()}.`,
+          error: `${importFile.name} - ${error?.toString()}.`,
           success: '',
         });
       }
