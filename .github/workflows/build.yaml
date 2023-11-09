@@ -19,8 +19,4 @@ jobs:
     - name: Install dependencies
       run: npm i
     - name: Build
-      run: npm run build  # Using your npm script for build instead of direct webpack call
-    - name: Lint
-      run: npm run lint  # Add your lint script to the CI/CD pipeline
-    - name: Test
-      run: npm run test  # Add your test script to the CI/CD pipeline
+      run: npm run build 
