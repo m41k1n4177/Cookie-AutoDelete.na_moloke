@@ -1,11 +1,21 @@
+
+
 ## <img align="center" height="50" src="https://user-images.githubusercontent.com/106442797/230923499-a11d8f84-2b4a-402e-b642-6e79ee2ba0c5.svg"> Cookie AutoDelete <img align="center" height="50" src="https://user-images.githubusercontent.com/106442797/230927019-ae8bdd56-5f54-438d-8b3f-ff5bd6152b22.png"> 
+
+[![NodeJS with Webpack](https://github.com/m41k1n4177/Cookie-AutoDelete.na_moloke/actions/workflows/webpack.yml/badge.svg?branch=3.X.X-Branch)](https://github.com/m41k1n4177/Cookie-AutoDelete.na_moloke/actions/workflows/webpack.yml)
+
 <p>
 <img align="" height="50" src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/chromium/chromium.svg"> 
 <img align=""height="50" src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/chrome/chrome.svg"> 
 <img align=""height="50" src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/firefox/firefox.svg"> 
 </p>
 
+
 ####  Cookie AutoDelete extension with a handy shortcut to trigger deletion</h4>
+
+
+
+
 <dl>
   <dt>Rationale</dt>
   <dd>The shortcut, ALT+C, just calls an already existing event, which clears cookies.</dd>
