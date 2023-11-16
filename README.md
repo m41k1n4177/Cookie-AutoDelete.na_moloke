@@ -2,7 +2,11 @@
 
 ## <img align="center" height="50" src="https://user-images.githubusercontent.com/106442797/230923499-a11d8f84-2b4a-402e-b642-6e79ee2ba0c5.svg"> Cookie AutoDelete <img align="center" height="50" src="https://user-images.githubusercontent.com/106442797/230927019-ae8bdd56-5f54-438d-8b3f-ff5bd6152b22.png"> 
 
-[![build and test](https://github.com/m41k1n4177/Cookie-AutoDelete.na_moloke/actions/workflows/build.yaml/badge.svg?branch=3.X.X-Branch)](https://github.com/m41k1n4177/Cookie-AutoDelete.na_moloke/actions/workflows/build.yaml)
+<div align="center">
+<p>⬇️ WITH <b>PASSING BUILD</b> ⬇️</p><img width="210px" src="https://github.com/m41k1n4177/Cookie-AutoDelete.na_moloke/actions/workflows/build.yaml/badge.svg?branch=3.X.X-Branch"/>
+</div>
+<!-- [![build and test](https://github.com/m41k1n4177/Cookie-AutoDelete.na_moloke/actions/workflows/build.yaml/badge.svg?branch=3.X.X-Branch)](https://github.com/m41k1n4177/Cookie-AutoDelete.na_moloke/actions/workflows/build.yaml) -->
+
 
 <p>
 <img align="" height="50" src="https://raw.githubusercontent.com/alrra/browser-logos/main/src/chromium/chromium.svg"> 
