@@ -4,6 +4,7 @@ on:
     branches: [ "3.X.X-Branch" ]
   pull_request:
     branches: [ "3.X.X-Branch" ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,10 +12,10 @@ jobs:
       matrix:
         node-version: [16.x, 18.x]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Cache node modules
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       env:
         cache-name: cache-node-modules
       with:
@@ -41,13 +42,13 @@ jobs:
     - name: Build
       run: npm run build 
 
-   - name: Send Telegram notification on failure
-     if: failure()
-     run: |
-       curl -X POST \
-            -H 'Content-Type: application/json' \
-            -d '{"chat_id": "'"$TELEGRAM_CHANNEL_ID"'", "text": "🚨 Build Failed 🚨\n\nRepository: '${{ github.repository }}'\nBranch: '${{ github.ref_name }}'\nWorkflow: '${{ github.workflow }}'\nAction: '${{ github.action }}'\nActor: '${{ github.actor }}'\n\nCheck it out 👀: '${{ github.server_url }}'/'${{ github.repository }}'/actions/runs/'${{ github.run_id }}'", "parse_mode": "Markdown", "disable_web_page_preview": true}' \
-            https://api.telegram.org/bot"$TELEGRAM_BOT_TOKEN"/sendMessage
-     env:
-       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-       TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+    - name: Send Telegram notification on failure
+      if: failure()
+      run: |
+        curl -X POST \
+             -H 'Content-Type: application/json' \
+             -d '{"chat_id": "'"$TELEGRAM_CHANNEL_ID"'", "text": "&#128680; Build Failed &#128680;\n\nRepository: '${{ github.repository }}'\nBranch: '${{ github.ref_name }}'\nWorkflow: '${{ github.workflow }}'\nAction: '${{ github.action }}'\nActor: '${{ github.actor }}'\n\nCheck it out 👀: '${{ github.server_url }}'/'${{ github.repository }}'/actions/runs/'${{ github.run_id }}'", "parse_mode": "Markdown", "disable_web_page_preview": true}' \
+             https://api.telegram.org/bot"$TELEGRAM_BOT_TOKEN"/sendMessage
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
