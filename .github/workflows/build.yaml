@@ -41,14 +41,55 @@ jobs:
 
     - name: Build
       run: npm run build 
-
+      
+    - name: send telegram message on push
+      uses: appleboy/telegram-action@master
+      with:
+          to: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          message: |
+            🧑‍💻 ${{ github.actor }} pushed a change:
+          
+            *Repository*: [${{ github.repository }}](https://github.com/${{ github.repository }})
+            *Branch*: `${{ github.ref }}`.split('/').pop()
+          
+            *Commit*:
+            - Message: `${{ github.event.commits[0].message }}`
+            - SHA: [${{ github.sha }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+          
+            *Workflow*: `${{ github.workflow }}`
+            *Action*: `${{ github.action }}`
+            *Event*: `${{ github.event.name }}`
+          
+            ***Check the latest changes*** 💥:
+            👀 [View Commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+            🛠️ [Action Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            
     - name: Send Telegram notification on failure
       if: failure()
-      run: |
-        curl -X POST \
-             -H 'Content-Type: application/json' \
-             -d '{"chat_id": "'"$TELEGRAM_CHANNEL_ID"'", "text": "&#128680; Build Failed &#128680;\n\nRepository: '${{ github.repository }}'\nBranch: '${{ github.ref_name }}'\nWorkflow: '${{ github.workflow }}'\nAction: '${{ github.action }}'\nActor: '${{ github.actor }}'\n\nCheck it out 👀: '${{ github.server_url }}'/'${{ github.repository }}'/actions/runs/'${{ github.run_id }}'", "parse_mode": "Markdown", "disable_web_page_preview": true}' \
-             https://api.telegram.org/bot"$TELEGRAM_BOT_TOKEN"/sendMessage
+      uses: appleboy/telegram-action@master
+      with:
+          to: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          message: |
+            🧑‍💻 ${{ github.actor }} caused a failed build:
+          
+            *Repository*: [${{ github.repository }}](https://github.com/${{ github.repository }})
+            *Branch*: `${{ github.ref }}`.split('/').pop()
+          
+            *Commit*:
+            - Message: `${{ github.event.commits[0].message }}`
+            - SHA: [${{ github.sha }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+          
+            *Workflow*: `${{ github.workflow }}`
+            *Action*: `${{ github.action }}`
+            *Event*: `${{ github.event.name }}`
+          
+            ***Check the latest changes*** 💥:
+            👀 [View Commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+            🛠️ [Action Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
