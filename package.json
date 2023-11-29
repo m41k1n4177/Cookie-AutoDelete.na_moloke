@@ -1,7 +1,7 @@
 {
   "name": "cookie-autodelete",
   "version": "3.8.2",
-  "description": "Firefox and Chrome browser extension that manages Cookies and other site data",
+  "description": "Firefox and Chrome browser extension that manages Cookies, and other site data",
   "keywords": [
     "cookie",
     "browser cookies",
@@ -15,6 +15,7 @@
   },
   "private": true,
   "dependencies": {
+    "@eslint-community/eslint-utils": "^4.4.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
@@ -44,7 +45,7 @@
     "ajv": "^8.11.2",
     "archiver": "^5.3.1",
     "copy-webpack-plugin": "^10.2.4",
-    "eslint": "^7.32.0",
+    "eslint": "^8.54.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jsdoc": "^46.9.0",
     "eslint-plugin-prefer-arrow": "^1.2.3",
