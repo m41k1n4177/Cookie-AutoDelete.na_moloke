@@ -32,12 +32,12 @@ jobs:
       # Cache dependencies here -- specific commands depend on your project's language and dependency manager
       
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
       
       # Uncomment and modify if Autobuild is not sufficient for your project's needs
       # - run: |
@@ -45,4 +45,4 @@ jobs:
       #     make release
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
